@@ -2,53 +2,42 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-#include <Windows.h> 
+
+
+
+struct PIPE{
+    string name;
+    int length;
+    int diametr;
+    bool sost;
+};
+
+PIPE PIPECreare() {
+    PIPE tr;
+    cout << "Введите название трубы ";
+    cin >> tr.name;
+    cout << "Введите название длину ";
+    cin >> tr.length;
+    return tr;
+}
+
+void PIPEPrint(const PIPE& tr) {
+    cout << "Название: " << tr.name << endl;
+    cout << "Длина: " << tr.length;
+}
 
 int main()
 {
-    SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
-    SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+    setlocale(LC_ALL, "RU");
+    PIPE PIPECreare();
+    PIPE tr = PIPECreare();
+    PIPEPrint(tr);
 
-    std::cout << " ВВЕДИТЕ СВОЙСТВА ТРУБЫ\n";
-
-    std::cout << " километровая отметка (название): ";
-    char name_pipe[20];
-    cin >> name_pipe ;
-
-    std::cout << " длина: ";
-    int length_pipe;
-    cin >> length_pipe;
-    
-    
-    std::cout << " диаметр: ";
-    int diametr_pipe;
-    cin >> diametr_pipe;
-
-    std::cout << " признак: в ремонте ";
-
-
-
-
-    std::cout << " \nВВЕДИТЕ КС\n";
-
-    std::cout << " название: ";
-    char name_ks[20];
-    cin >> name_ks;
-
-    std::cout << " количество цехов: ";
-    int count_workshop ;
-    cin >> count_workshop;
-
-    std::cout << " количество цехов в работе: ";
-    int count_workshop_in_work;
-    cin >> count_workshop_in_work;
-
-    std::cout << " эффективность: ";
-    int effectiveness;
-    cin >> effectiveness;
 }
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
